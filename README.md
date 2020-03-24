@@ -7,7 +7,7 @@ Container features are
 - Lightweight alpine linux
 - Python 3
 - Flexget with initial settings (default ```config.yml``` and webui password)
-- pre-installed plug-ins (transmissionrpc, python-telegram-bot)
+- pre-installed plug-ins ( transmissionrpc )
 
 No default password anymore, secure webui using ```FG_WEBUI_PASSWD``` below.
 
