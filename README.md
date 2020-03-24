@@ -11,7 +11,7 @@ Container features are
 
 No default password anymore, secure webui using ```FG_WEBUI_PASSWD``` below.
 
-## Usage
+## Usage - docker
 
 ```
 docker run -d \
@@ -26,7 +26,7 @@ docker run -d \
     -e TZ=<timezone> \
     wiserain/flexget
 ```
-
+## Usagen - docker-compose
 ```
 version: "3.6"
 
