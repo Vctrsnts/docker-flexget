@@ -9,8 +9,6 @@ Container features are
 - Flexget with initial settings (default ```config.yml``` and webui password)
 - pre-installed plug-ins (transmissionrpc, python-telegram-bot)
 
-~~Note that a default password for webui is set to ```f1exgetp@ss```.~~
-
 No default password anymore, secure webui using ```FG_WEBUI_PASSWD``` below.
 
 ## Usage
@@ -27,4 +25,32 @@ docker run -d \
     -e PGID=<GID for user> \
     -e TZ=<timezone> \
     wiserain/flexget
+```
+
+```
+version: "3.6"
+
+services:
+
+  flexget:
+   image: vctrsnts/flexget
+   container_name: flexget
+   volumes:
+    - ${STORAGE}/transmission/complete:/media/transmission
+    - ${STORAGE}/amule/incoming:/media/amule
+    - ${STORAGE}/config/flexget:/config
+    - ${MEDIA}/series:/media/series
+    - ${MEDIA}/movies:/media/movies
+    - ${SEGURETAT}:/media/backup
+   ports:
+    - 5050:5050
+   environment:
+    - PUID=1001
+    - PGID=1001
+    - TORRENT_PLUGIN=YourTransmissionUser
+    - FG_WEBUI_PASSWD=YourTransmissionPassword
+    - TZ=Europe/Madrid
+   restart: always
+   links:
+    - transmission
 ```
